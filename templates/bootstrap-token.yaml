@@ -1,0 +1,22 @@
+{{- range .Values.tokens }}
+apiVersion: v1
+kind: Secret
+metadata:
+  # Name MUST be of form "bootstrap-token-<token id>"
+  name: bootstrap-token-{{ required "token must have id set" (index . "token-id") }}
+type: bootstrap.kubernetes.io/token
+stringData:
+  {{- if index . "description" }}
+  description: "{{ index . "description" }}"
+  {{- end }}
+  token-id: {{ index . "token-id" }}
+  token-secret: {{ required "token secret must be set" (index . "token-secret") }}
+  {{- if index . "expiration" }}
+  expiration: {{ index . "expiration" }}
+  {{- end }}
+  usage-bootstrap-authentication: "{{ index . "usage-bootstrap-authentication" | default "true" }}"
+  usage-bootstrap-signing: "{{ index . "usage-bootstrap-signing" | default "true" }}"
+  {{- if index . "auth-extra-groups" }}
+  auth-extra-groups: {{ index . "auth-extra-groups" }}
+  {{- end }}
+{{- end }}

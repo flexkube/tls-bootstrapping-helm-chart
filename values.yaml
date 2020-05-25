@@ -1,0 +1,8 @@
+tokens:
+#- description: ""
+#  token-id: "" # Create by running 'cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 6 | head -n 1'.
+#  token-secret: "" # Create by running 'cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 16 | head -n 1'.
+#  expiration: "2025-03-10T03:22:11Z" # Must be in this format.
+#  usage-bootstrap-authentication: "true" # Is true by default
+#  usage-bootstrap-signing: "true" # Is true by default.
+#  auth-extra-groups: "system:bootstrappers:worker,system:bootstrappers:ingress" # Must start with system:bootstrappers:.
